@@ -5,37 +5,26 @@ Created on Sat Aug 17 13:18:20 2024
 @author: DELL
 """
 
-import random
-
-def get_machine_choice():
-    choices = ["Kéo", "Búa", "Bao"]
-    return random.choice(choices)
-
-def determine_winner(user_choice, machine_choice):
-    if user_choice == machine_choice:
-        return "Hòa"
-    elif (user_choice == "Kéo" and machine_choice == "Bao") or \
-         (user_choice == "Búa" and machine_choice == "Kéo") or \
-         (user_choice == "Bao" and machine_choice == "Búa"):
-        return "Bạn thắng"
-    else:
-        return "Máy thắng"
-
-def main():
-    print("Chào mừng bạn đến với trò chơi Kéo - Búa - Bao!")
-    print("Lựa chọn của bạn: Kéo, Búa, Bao")
-    
-    user_choice = input("Nhập lựa chọn của bạn: ").strip()
-    
-    if user_choice not in ["Kéo", "Búa", "Bao"]:
-        print("Lựa chọn không hợp lệ! Vui lòng nhập Kéo, Búa, hoặc Bao.")
-        return
-    
-    machine_choice = get_machine_choice()
-    print(f"Máy chọn: {machine_choice}")
-    
-    result = determine_winner(user_choice, machine_choice)
-    print(result)
-
-if __name__ == "__main__":
-    main()
+from random import randint
+nguoi = int(input("Bạn vui lòng chọn: 1.Kéo, 2.Búa, 3.Bao : "))
+may = randint(1,3)
+if may == 1:
+    print("Máy chọn Kéo")
+if may == 2:
+    print("Máy chọn Búa")
+if may == 3:
+    print("Máy chọn Bao")
+if may == nguoi:
+    print("Hòa")
+if may == 1 and nguoi == 2:
+    print("Thắng")
+if may == 1 and nguoi == 3:
+    print("Thua")
+if may == 2 and nguoi == 3:
+    print("Thắng")
+if may == 2 and nguoi == 1:
+    print("Thua")
+if may == 3 and nguoi == 1:
+    print("Thắng")
+if may == 3 and nguoi == 2:
+    print("Thua")
